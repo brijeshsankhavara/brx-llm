@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "brx"
+version = "0.1.0"
+description = "A LLaMA-style decoder-only language model, written from scratch in PyTorch"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Brijesh Sankhavara" }]
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.1",
+    "transformers>=4.40",
+    "accelerate>=0.29",
+    "datasets>=2.18",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6", "matplotlib>=3.8"]
+
+[tool.setuptools]
+packages = ["brx"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
